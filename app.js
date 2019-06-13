@@ -34,24 +34,22 @@ new Vue({
     atacar() {
       let dano = this.obterDanoMonstro()
       this.vidaJogador = this.vidaJogador - dano
-      this.vidaJogador = this.vidaJogador < 0 ? 0 : this.vidaJogador
       this.registrarHistoricoAtaqueMonstro(dano)
 
       dano = this.obterDanoJogador()
       this.vidaMonstro = this.vidaMonstro - dano
-      this.vidaMonstro = this.vidaMonstro < 0 ? 0 : this.vidaMonstro
       this.registrarHistoricoAtaqueJogador(dano)
+      this.verificarFimDeJogo()
     },
     atacarComGolpeEspecial() {
       let dano = this.obterDanoMonstro()
       this.vidaJogador = this.vidaJogador - dano
-      this.vidaJogador = this.vidaJogador < 0 ? 0 : this.vidaJogador
       this.registrarHistoricoAtaqueMonstro(dano)
 
       dano = this.obterDanoEspecialJogador()
       this.vidaMonstro = this.vidaMonstro - dano
-      this.vidaMonstro = this.vidaMonstro < 0 ? 0 : this.vidaMonstro
       this.registrarHistoricoAtaqueJogador(dano)
+      this.verificarFimDeJogo()
     },
     curar () {
       let cura = this.obterCuraJogador()
@@ -61,8 +59,24 @@ new Vue({
 
       let dano = this.obterDanoJogador()
       this.vidaJogador = this.vidaJogador - dano
-      this.vidaJogador = this.vidaJogador < 0 ? 0 : this.vidaJogador
       this.registrarHistoricoAtaqueMonstro(dano)
+      this.verificarFimDeJogo()
+    },
+    verificarFimDeJogo() {
+      this.vidaJogador = this.vidaJogador < 0 ? 0 : this.vidaJogador
+      this.vidaMonstro = this.vidaMonstro < 0 ? 0 : this.vidaMonstro
+
+      if (this.vidaJogador === 0) {
+        this.emJogo = false
+        this.resultado = "Você perdeu!"
+        return
+      }
+
+      if (this.vidaMonstro === 0) {
+        this.emJogo = false
+        this.resultado = "Você ganhou!"
+        return
+      }
     },
     desistir () {
       this.emJogo = false
