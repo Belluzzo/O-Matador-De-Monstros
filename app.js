@@ -38,7 +38,7 @@ new Vue({
       this.registrarHistoricoAtaqueMonstro(dano)
 
       dano = this.obterDanoJogador()
-      this.vidaMonstro = this.vidaMonstro - Math.floor(Math.random() * 6)
+      this.vidaMonstro = this.vidaMonstro - dano
       this.vidaMonstro = this.vidaMonstro < 0 ? 0 : this.vidaMonstro
       this.registrarHistoricoAtaqueJogador(dano)
     },
