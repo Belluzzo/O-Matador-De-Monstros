@@ -10,13 +10,25 @@ new Vue({
   },
   computed: {
     barraVidaMonstro() {
+      let color = 'green'
+      if (this.vidaMonstro < 20) {
+        color = 'red'
+      }
       return {
-        width: `${this.vidaMonstro}%`
+        width: `${this.vidaMonstro}%`,
+        backgroundColor: `${color}`,
+        height: '100%'
       }
     },
     barraVidaJogador() {
+      let color = 'green'
+      if (this.vidaJogador < 20) {
+        color = 'red'
+      }
       return {
-        width: `${this.vidaJogador}%`
+        width: `${this.vidaJogador}%`,
+        backgroundColor: `${color}`,
+        height: '100%'
       }
     },
     jogoEmAndamento() {
