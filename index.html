@@ -37,18 +37,22 @@
       </div>
     </div>
 
-    <div class="card" id="menu-jogo" v-if="!jogoEmAndamento">
+    <div class="card" id="resultado-batalha" v-if="resultado !== ''">
+      <h2>{{ resultado }}</h2>
+    </div>
+
+    <div class="card" id="menu-jogo" v-show="!jogoEmAndamento">
         <a class="waves-effect waves-light blue btn" @click="iniciarJogo">INICIAR NOVO JOGO</a>
     </div>
 
-    <div class="card" id="barra-acoes" v-if="jogoEmAndamento">
+    <div class="card" id="barra-acoes" v-show="jogoEmAndamento">
         <a class="waves-effect waves-light blue btn" @click="atacar">ATAQUE</a>
         <a class="waves-effect waves-light red btn" @click="atacarComGolpeEspecial">ATAQUE ESPECIAL</a>
         <a class="waves-effect waves-light btn lime" @click="curar">CURAR</a>
         <a class="waves-effect waves-light btn" @click="desistir">DESISTIR</a>
     </div>
 
-    <div class="card" id="historico-batalha" v-if="jogoEmAndamento && historicoAcoes.length > 0">
+    <div class="card" id="historico-batalha" v-show="historicoAcoes.length > 0">
       <ul>
         <li v-for="acao in historicoAcoes"> 
           <div class="card historico-acoes" :class="acao.estilo">{{acao.menssagem}}</div>

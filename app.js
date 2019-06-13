@@ -5,7 +5,8 @@ new Vue({
     vidaMonstro: 100,
     vidaJogador: 100,
     emJogo: false,
-    historicoAcoes: []
+    historicoAcoes: [],
+    resultado: ''
   },
   computed: {
     barraVidaMonstro() {
@@ -20,7 +21,7 @@ new Vue({
     },
     jogoEmAndamento() {
       return this.emJogo ? ((this.vidaMonstro === 0 || this.vidaJogador === 0) ? false : true) : false
-    }
+    },
   },
   methods: {
     iniciarJogo() {
@@ -28,6 +29,7 @@ new Vue({
       this.vidaJogador = 100
       this.vidaMonstro = 100
       this.historicoAcoes = []
+      this.resultado = ''
     },
     atacar() {
       let dano = this.obterDanoMonstro()
@@ -64,8 +66,7 @@ new Vue({
     },
     desistir () {
       this.emJogo = false
-      this.vidaJogador = 100
-      this.vidaMonstro = 100
+      this.resultado = "Você desistiu do jogo!"
     },
     obterDanoJogador () {
       return Math.floor(Math.random() * 6)
