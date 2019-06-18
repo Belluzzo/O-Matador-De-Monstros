@@ -1,0 +1,46 @@
+h1 {
+  text-align: center;
+}
+
+.card {
+  padding: 25px;
+  margin: 20px;
+}
+
+.barra-vida {
+	border: 1px solid #CCCCCC;
+	width: 100%;
+  height: 30px;
+}
+
+.historico-ataque-jogador {
+  background-color: #2196F3;
+}
+
+.historico-ataque-monstro {
+  background-color: #F44336;
+}
+
+.historico-cura-jogador {
+  background-color: #cddc39;
+}
+
+.historico-acoes {
+  height: 30px;
+  padding: 5px;
+  margin: 5px;
+  color: white;
+  text-align: center;
+}
+
+#barra-acoes {
+  text-align: center;
+}
+
+#menu-jogo {
+  text-align: center;
+}
+
+#resultado-batalha {
+  text-align: center;
+}
